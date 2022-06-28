@@ -1,19 +1,18 @@
 import { FC, useRef, useState } from "react";
 
 interface Props {
-    
+    redSquaresCount:any
 }
 
-const Grid: FC<Props> = () => {
-    const blueSquaresCount = useRef(0)
+const Grid: FC<Props> = ({redSquaresCount}) => {
 
     // call back function for event listeners (colors the specific square blue)
     const colorChangeBlue = (event:any) => {
         if (event.path[0].style.backgroundColor != 'red') {
-            blueSquaresCount.current += 1
+            redSquaresCount.current += 1
         }
         event.path[0].style.backgroundColor = 'red'
-        console.log(blueSquaresCount.current)
+        console.log(redSquaresCount.current)
     }
 
     //getting all document references and setting event listeners for coloring squares as we pass on them
@@ -49,7 +48,7 @@ const Grid: FC<Props> = () => {
 
     return ( 
             <div className="">
-                <div>{blueSquaresCount.current}</div>
+                <div>{redSquaresCount.current}</div>
                 {
                     renderGrid(100)
                 }

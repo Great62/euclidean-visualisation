@@ -1,11 +1,10 @@
 import { FC, useRef, useState } from "react";
 
 interface Props {
-    
+    blueSquaresCount:any
 }
 
-const Grid: FC<Props> = () => {
-    const blueSquaresCount = useRef(0)
+const Grid: FC<Props> = ({blueSquaresCount}) => {
 
     // call back function for event listeners (colors the specific square blue)
     const colorChangeBlue = (event:any) => {
